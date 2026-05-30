@@ -1,0 +1,32 @@
+[gd_scene format=4 uid="uid://jp2y0caau0tj"]
+
+[ext_resource type="Script" uid="uid://c3nnuhgrc0ogt" path="res://level/level.gd" id="1_qohg2"]
+[ext_resource type="PackedScene" uid="uid://byymak3xhnshu" path="res://player/player.tscn" id="2_5gx2l"]
+[ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_qohg2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkbyq"]
+texture = ExtResource("2_qohg2")
+1:28/0 = 0
+2:28/0 = 0
+3:28/0 = 0
+3:29/0 = 0
+3:30/0 = 0
+2:30/0 = 0
+1:30/0 = 0
+1:29/0 = 0
+2:29/0 = 0
+2:31/0 = 0
+1:31/0 = 0
+3:31/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ktfr2"]
+sources/0 = SubResource("TileSetAtlasSource_vkbyq")
+
+[node name="Level" type="Node2D" unique_id=1037301226]
+script = ExtResource("1_qohg2")
+
+[node name="GrassLayer" type="TileMapLayer" parent="." unique_id=409544205]
+tile_map_data = PackedByteArray("AAACAP//AAACAB0AAAABAP//AAACAB0AAAAAAP//AAACAB0AAAD/////AAACAB0AAAD+////AAACAB0AAAD9////AAACAB0AAAD9/wAAAAACAB0AAAD+/wAAAAACAB0AAAD//wAAAAACAB0AAAAAAAAAAAACAB0AAAABAAAAAAACAB0AAAACAAAAAAACAB0AAAACAAEAAAACAB0AAAABAAEAAAACAB0AAAAAAAEAAAACAB0AAAD//wEAAAACAB0AAAD+/wEAAAACAB0AAAD9/wEAAAACAB0AAAD9//7/AAACABwAAAD+//7/AAACABwAAAD///7/AAACABwAAAAAAP7/AAACABwAAAABAP7/AAACABwAAAACAP7/AAACABwAAAADAP7/AAACABwAAAADAP//AAACAB0AAAADAAAAAAACAB0AAAADAAEAAAACAB0AAAADAAIAAAACAB4AAAACAAIAAAACAB4AAAABAAIAAAACAB4AAAAAAAIAAAACAB4AAAD//wIAAAACAB4AAAD+/wIAAAACAB4AAAD9/wIAAAACAB4AAAD8/wEAAAACAB0AAAD8/wAAAAACAB0AAAD8////AAACAB0AAAD8//7/AAACABwAAAD8/wIAAAACAB4AAAAEAAIAAAADAB4AAAD7/wIAAAABAB4AAAD7/wEAAAABAB0AAAD7/wAAAAABAB0AAAD7////AAABAB0AAAAEAAEAAAADAB0AAAAEAAAAAAADAB0AAAAEAP//AAADAB0AAAAEAP7/AAADABwAAAD7//7/AAABABwAAAD8/wMAAAACAB8AAAD9/wMAAAACAB8AAAD+/wMAAAACAB8AAAD//wMAAAACAB8AAAAAAAMAAAACAB8AAAABAAMAAAACAB8AAAACAAMAAAACAB8AAAADAAMAAAACAB8AAAAEAAMAAAADAB8AAAD7/wMAAAABAB8AAAA=")
+tile_set = SubResource("TileSet_ktfr2")
+
+[node name="Player" parent="." unique_id=1064576997 instance=ExtResource("2_5gx2l")]
