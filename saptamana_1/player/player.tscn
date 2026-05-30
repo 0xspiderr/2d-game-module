@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byymak3xhnshu"]
 
-[ext_resource type="Script" uid="uid://d101aungskxok" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://d101aungskxok" path="res://saptamana_1/player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://cbs1lju3hnp3h" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Characters/Human/IDLE/base_idle_strip9.png" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bwstekuvpe4u5" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Characters/Human/WALKING/base_walk_strip8.png" id="3_g1dw6"]
 

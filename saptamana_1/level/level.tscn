@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://jp2y0caau0tj"]
 
-[ext_resource type="Script" uid="uid://c3nnuhgrc0ogt" path="res://level/level.gd" id="1_qohg2"]
-[ext_resource type="PackedScene" uid="uid://byymak3xhnshu" path="res://player/player.tscn" id="2_5gx2l"]
+[ext_resource type="Script" uid="uid://c3nnuhgrc0ogt" path="res://saptamana_1/level/level.gd" id="1_qohg2"]
+[ext_resource type="PackedScene" uid="uid://byymak3xhnshu" path="res://saptamana_1/player/player.tscn" id="2_5gx2l"]
 [ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_qohg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkbyq"]
