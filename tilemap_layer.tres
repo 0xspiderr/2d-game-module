@@ -73,6 +73,19 @@ texture = ExtResource("1_i2te8")
 5:33/0 = 0
 5:33/0/terrain_set = 0
 5:33/0/terrains_peering_bit/bottom_right_corner = 0
+19:2/animation_separation = Vector2i(2, 0)
+19:2/animation_frame_0/duration = 1.0
+19:2/animation_frame_1/duration = 1.0
+19:2/0 = 0
+20:2/animation_separation = Vector2i(2, 0)
+20:2/animation_frame_0/duration = 1.0
+20:2/animation_frame_1/duration = 1.0
+20:2/0 = 0
+21:2/animation_columns = 2
+21:2/animation_separation = Vector2i(2, 0)
+21:2/animation_frame_0/duration = 1.0
+21:2/animation_frame_1/duration = 1.0
+21:2/0 = 0
 
 [resource]
 terrain_set_0/mode = 0
