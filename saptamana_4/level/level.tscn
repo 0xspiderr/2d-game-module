@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dwoqlwq1g1mx2"]
 
-[ext_resource type="Script" uid="uid://c7okqbh72wk2i" path="res://saptamana_4(next_week)/level/level.gd" id="1_df0rl"]
+[ext_resource type="Script" uid="uid://c7okqbh72wk2i" path="res://saptamana_4/level/level.gd" id="1_df0rl"]
 [ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_thw5k"]
 [ext_resource type="TileSet" uid="uid://n2m8737hatut" path="res://tilemap_layer.tres" id="2_df0rl"]
-[ext_resource type="PackedScene" uid="uid://ba5tkdk2idal7" path="res://saptamana_4(next_week)/player/player.tscn" id="3_jgnn3"]
+[ext_resource type="PackedScene" uid="uid://ba5tkdk2idal7" path="res://saptamana_4/player/player.tscn" id="3_jgnn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ks832"]
 texture = ExtResource("1_thw5k")
