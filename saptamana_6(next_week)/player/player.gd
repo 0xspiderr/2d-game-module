@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 var _current_speed: int = _walking_speed
 var _running_speed: int = 100
 
+@onready var marker_2d: Marker2D = %Marker2D
 var _direction: Vector2 = Vector2.ZERO
 @onready var player_animated_sprite: AnimatedSprite2D = $PlayerAnimatedSprite
 @onready var tool_animated_sprite: AnimatedSprite2D = $ToolAnimatedSprite
@@ -11,6 +12,7 @@ var _direction: Vector2 = Vector2.ZERO
 var _is_running: bool = false
 var _facing_right: bool = true:
 	set(value):
+		_facing_right = value
 		player_animated_sprite.flip_h = not value
 		tool_animated_sprite.flip_h = not value
 var _player_interacted: bool = false
@@ -31,6 +33,9 @@ enum State {
 	TOOL_USED
 }
 var _current_state: State = State.IDLE
+const TOOL_LEFT: float = -1.0
+const TOOL_RIGHT: float = 1.0
+const TOOL_OFFSET: float = 12.0
 
 func _set_state(new_state: State) -> void:
 	if _current_state == new_state:
@@ -114,8 +119,10 @@ func _play_tool_animation() -> void:
 	tool_animated_sprite.play(tool_anim_name.to_lower())
 	await player_animated_sprite.animation_finished
 	await tool_animated_sprite.animation_finished
-	var tool_dir: float = 1.0 if _facing_right else -1.0
-	var offset: Vector2 = position + Vector2(8.0 * tool_dir, 0.0)
-	tool_used.emit(_current_tool, offset)
+	var tool_dir: float = TOOL_RIGHT if _facing_right else TOOL_LEFT
+	print(tool_dir)
+	var pos_offset: Vector2 = position + Vector2(tool_dir * TOOL_OFFSET, 0.0)
+	tool_used.emit(_current_tool, pos_offset)
+	
 	_set_state(State.IDLE)
 #endregion
