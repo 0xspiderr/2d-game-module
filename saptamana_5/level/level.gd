@@ -16,9 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_player_tool_used(tool: Player.Tool, offset: Vector2) -> void:
-	var grid_pos: Vector2i = Vector2i(int(roundf(offset.x / TILE_SIZE)), int(roundf(offset.y / TILE_SIZE)))
-	print(grid_pos)
-	print(offset)
+	var grid_pos: Vector2i = Vector2i(int(offset.x / TILE_SIZE), int(offset.y / TILE_SIZE))
 	match tool:
 		Player.Tool.DIG:
 			dirt_layer.set_cells_terrain_connect([grid_pos], 0, 0, false)
