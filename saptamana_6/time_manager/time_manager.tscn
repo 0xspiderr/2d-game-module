@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dn2smlf6hrefa"]
+
+[ext_resource type="Script" uid="uid://c208mvtgfpyhc" path="res://saptamana_6/time_manager/time_manager.gd" id="1_mcgcn"]
+
+[node name="TimeManager" type="Timer" unique_id=1799585748]
+wait_time = 5.0
+autostart = true
+script = ExtResource("1_mcgcn")

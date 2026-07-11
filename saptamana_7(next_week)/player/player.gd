@@ -4,7 +4,6 @@ class_name Player extends CharacterBody2D
 var _current_speed: int = _walking_speed
 var _running_speed: int = 100
 
-@onready var marker_2d: Marker2D = %Marker2D
 var _direction: Vector2 = Vector2.ZERO
 @onready var player_animated_sprite: AnimatedSprite2D = $PlayerAnimatedSprite
 @onready var tool_animated_sprite: AnimatedSprite2D = $ToolAnimatedSprite
@@ -20,7 +19,8 @@ var _player_interacted: bool = false
 
 enum Tool {
 	WATER,
-	DIG
+	DIG,
+	CARRY
 }
 var _current_tool: Tool = Tool.WATER
 
@@ -121,7 +121,7 @@ func _play_tool_animation() -> void:
 	await tool_animated_sprite.animation_finished
 	var tool_dir: float = TOOL_RIGHT if _facing_right else TOOL_LEFT
 	print(tool_dir)
-	var pos_offset: Vector2 = position + Vector2(tool_dir * TOOL_OFFSET, 0.0)
+	var pos_offset: Vector2 = position + Vector2(tool_dir * TOOL_OFFSET, 6.0)
 	tool_used.emit(_current_tool, pos_offset)
 	
 	_set_state(State.IDLE)

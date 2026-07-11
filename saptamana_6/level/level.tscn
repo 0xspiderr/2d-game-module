@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://b6qdn652vqwi1"]
 
-[ext_resource type="Script" uid="uid://u84dnog5m5aj" path="res://saptamana_6(next_week)/level/level.gd" id="1_ggyee"]
+[ext_resource type="Script" uid="uid://u84dnog5m5aj" path="res://saptamana_6/level/level.gd" id="1_ggyee"]
 [ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_ckxv1"]
 [ext_resource type="TileSet" uid="uid://n2m8737hatut" path="res://tilemap_layer.tres" id="3_h3boe"]
-[ext_resource type="PackedScene" uid="uid://y461yd52fvul" path="res://saptamana_6(next_week)/player/player.tscn" id="4_vrxos"]
+[ext_resource type="PackedScene" uid="uid://y461yd52fvul" path="res://saptamana_6/player/player.tscn" id="4_vrxos"]
+[ext_resource type="Script" uid="uid://c208mvtgfpyhc" path="res://saptamana_6/time_manager/time_manager.gd" id="5_ckxv1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ks832"]
 texture = ExtResource("2_ckxv1")
@@ -111,6 +112,15 @@ tile_set = ExtResource("3_h3boe")
 [node name="WaterDirtLayer" type="TileMapLayer" parent="." unique_id=305478624]
 tile_set = SubResource("TileSet_pobgt")
 
+[node name="Plants" type="Node2D" parent="." unique_id=1360996094]
+
 [node name="Player" parent="." unique_id=1064576997 instance=ExtResource("4_vrxos")]
 
+[node name="TimeManager" type="Timer" parent="." unique_id=1487135645]
+wait_time = 5.0
+autostart = true
+script = ExtResource("5_ckxv1")
+metadata/_custom_type_script = "uid://c208mvtgfpyhc"
+
 [connection signal="tool_used" from="Player" to="." method="_on_player_tool_used"]
+[connection signal="timeout" from="TimeManager" to="." method="_on_time_manager_timeout"]

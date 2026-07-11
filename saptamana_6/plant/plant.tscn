@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cnn5fh14sys6e"]
+
+[ext_resource type="Script" uid="uid://cf0oa6pbp1p44" path="res://saptamana_6/plant/plant.gd" id="1_pfxre"]
+[ext_resource type="Texture2D" uid="uid://brjeuvbcv2p0y" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_01.png" id="1_t4x1j"]
+[ext_resource type="Texture2D" uid="uid://c8w6tgubqhbih" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_02.png" id="2_pfxre"]
+[ext_resource type="Texture2D" uid="uid://bk2hryvx3kdnp" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_03.png" id="3_60hka"]
+[ext_resource type="Texture2D" uid="uid://cgvaw7xwqcnpv" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_04.png" id="4_mepq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81mfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t4x1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pfxre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_60hka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mepq2")
+}],
+"loop": false,
+"name": &"carrot",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4x1j"]
+size = Vector2(6, 4)
+
+[node name="Plant" type="StaticBody2D" unique_id=1858728815 groups=["plants"]]
+script = ExtResource("1_pfxre")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=426023708]
+sprite_frames = SubResource("SpriteFrames_81mfb")
+animation = &"carrot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308714854]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_t4x1j")

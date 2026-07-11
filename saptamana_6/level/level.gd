@@ -10,15 +10,19 @@ enum CellType {
 	WATER
 }
 @export var _atlas_coordinates: Dictionary[CellType, Vector2i]
+const PLANT = preload("uid://cnn5fh14sys6e")
+@onready var plants: Node2D = $Plants
+var planted_cells: Array[Vector2i]
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_player_tool_used(tool: Player.Tool, offset: Vector2) -> void:
-	var grid_pos: Vector2i = Vector2i(int(offset.x / TILE_SIZE), int(offset.y / TILE_SIZE))
-	print(grid_pos)
-	print(offset)
+	var grid_pos: Vector2i = Vector2i(floor(offset.x / TILE_SIZE), floor(offset.y / TILE_SIZE))
+	#print(grid_pos)
+	#print(offset)
 	match tool:
 		Player.Tool.DIG:
 			dirt_layer.set_cells_terrain_connect([grid_pos], 0, 0, false)
@@ -31,7 +35,17 @@ func _on_player_tool_used(tool: Player.Tool, offset: Vector2) -> void:
 				# ....
 				print("can water")
 				water_dirt_layer.set_cell(grid_pos, 0, _atlas_coordinates[CellType.WATER])
+		Player.Tool.CARRY:
+			var dirt_data := dirt_layer.get_cell_tile_data(grid_pos)
+			if not dirt_data:
+				return
+			
+			if not grid_pos in planted_cells:
+				var plant = PLANT.instantiate()
+				plant.position = (TILE_SIZE * grid_pos) + Vector2i(TILE_SIZE / 2, TILE_SIZE / 3)
+				plants.add_child(plant)
+				print("am spawnat o planta")
+				planted_cells.append(grid_pos)
 
-#
-#
-#
+func _on_time_manager_timeout() -> void:
+	get_tree().call_group("plants", "grow_plant")
