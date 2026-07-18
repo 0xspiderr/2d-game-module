@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://gc0vipe2g5t4"]
 
-[ext_resource type="Script" uid="uid://d1vvkfat4p5qu" path="res://saptamana_7(next_week)/plant/plant.gd" id="1_rn3mc"]
+[ext_resource type="Script" uid="uid://d1vvkfat4p5qu" path="res://saptamana_7/plant/plant.gd" id="1_rn3mc"]
 [ext_resource type="Texture2D" uid="uid://brjeuvbcv2p0y" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_01.png" id="2_7xfi7"]
 [ext_resource type="Texture2D" uid="uid://c8w6tgubqhbih" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_02.png" id="3_k4tvf"]
 [ext_resource type="Texture2D" uid="uid://bk2hryvx3kdnp" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_03.png" id="4_di0n3"]
 [ext_resource type="Texture2D" uid="uid://cgvaw7xwqcnpv" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_04.png" id="5_mw81e"]
+[ext_resource type="Texture2D" uid="uid://bgijr0biaqk5g" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Elements/Crops/carrot_05.png" id="6_7xfi7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_81mfb"]
 animations = [{
@@ -20,6 +21,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_mw81e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7xfi7")
 }],
 "loop": false,
 "name": &"carrot",
@@ -29,7 +33,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4x1j"]
 size = Vector2(6, 4)
 
-[node name="Plant" type="StaticBody2D" unique_id=1858728815 groups=["plants"]]
+[node name="Plant" type="Area2D" unique_id=1631992312 groups=["plants"]]
 script = ExtResource("1_rn3mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=426023708]
@@ -39,3 +43,5 @@ animation = &"carrot"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308714854]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_t4x1j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

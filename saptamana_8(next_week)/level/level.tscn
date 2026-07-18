@@ -1,13 +1,13 @@
-[gd_scene format=4 uid="uid://dgv5ev0gcgpd8"]
+[gd_scene format=4 uid="uid://crvbk22xpsuvp"]
 
-[ext_resource type="Script" uid="uid://cd5jbix2uaip2" path="res://saptamana_7(next_week)/level/level.gd" id="1_m4mo3"]
-[ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_wys4r"]
-[ext_resource type="TileSet" uid="uid://n2m8737hatut" path="res://tilemap_layer.tres" id="3_n6e38"]
-[ext_resource type="PackedScene" uid="uid://b50sxbn78mvqf" path="res://saptamana_7(next_week)/player/player.tscn" id="4_ydq7e"]
-[ext_resource type="Script" uid="uid://dhl8dy18o35ao" path="res://saptamana_7(next_week)/time_manager/time_manager.gd" id="5_vnra1"]
+[ext_resource type="Script" uid="uid://c2qacel2x4fki" path="res://saptamana_8(next_week)/level/level.gd" id="1_g7l6d"]
+[ext_resource type="Texture2D" uid="uid://mysb1wxysi3j" path="res://assets/Sunnyside_World_ASSET_PACK_V2.1(2)/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_nqn10"]
+[ext_resource type="TileSet" uid="uid://n2m8737hatut" path="res://tilemap_layer.tres" id="3_gh1m5"]
+[ext_resource type="PackedScene" uid="uid://jepvffgjen8f" path="res://saptamana_8(next_week)/player/player.tscn" id="4_o4qfi"]
+[ext_resource type="Script" uid="uid://d1sa81pfwgpqq" path="res://saptamana_8(next_week)/time_manager/time_manager.gd" id="5_y0snq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ks832"]
-texture = ExtResource("2_wys4r")
+texture = ExtResource("2_nqn10")
 19:2/animation_separation = Vector2i(2, 0)
 19:2/animation_frame_0/duration = 1.0
 19:2/animation_frame_1/duration = 1.0
@@ -41,7 +41,7 @@ texture = ExtResource("2_wys4r")
 sources/1 = SubResource("TileSetAtlasSource_ks832")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkbyq"]
-texture = ExtResource("2_wys4r")
+texture = ExtResource("2_nqn10")
 1:28/0 = 0
 1:28/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5.3511677, -5.0538816, 8, -8, 8, 8, -8)
 2:28/0 = 0
@@ -80,7 +80,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vkbyq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5qyb"]
-texture = ExtResource("2_wys4r")
+texture = ExtResource("2_nqn10")
 50:12/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pobgt"]
@@ -91,7 +91,7 @@ custom_data_layer_1/type = 0
 sources/0 = SubResource("TileSetAtlasSource_b5qyb")
 
 [node name="Level" type="Node2D" unique_id=1037301226]
-script = ExtResource("1_m4mo3")
+script = ExtResource("1_g7l6d")
 _atlas_coordinates = Dictionary[int, Vector2i]({
 0: Vector2i(6, 35),
 1: Vector2i(50, 12)
@@ -107,19 +107,19 @@ tile_set = SubResource("TileSet_ktfr2")
 
 [node name="DirtLayer" type="TileMapLayer" parent="." unique_id=1484341000]
 tile_map_data = PackedByteArray("AAACAAAAAAAGACMAAAADAAAAAAAIACMAAAADAAEAAAAIACMAAAACAAEAAAAGACMAAAABAAEAAAAGACMAAAABAAAAAAAGACMAAAABAP//AAAGACEAAAACAP//AAAGACEAAAADAP//AAAHACEAAAAAAAEAAAAGACMAAAAAAAAAAAAGACMAAAAAAP//AAAGACEAAAADAAIAAAAIACQAAAACAAIAAAAGACUAAAABAAIAAAAGACUAAAAAAAIAAAAGACUAAAD//wIAAAAGACUAAAD//wEAAAAGACMAAAD//wAAAAAGACMAAAD/////AAAGACEAAAD+/wEAAAAGACMAAAD+/wAAAAAGACMAAAD+////AAAGACEAAAD+/wIAAAAGACUAAAD9/wIAAAAFACUAAAD9/wEAAAAEACMAAAD9/wAAAAAEACMAAAD9////AAAFACEAAAA=")
-tile_set = ExtResource("3_n6e38")
+tile_set = ExtResource("3_gh1m5")
 
 [node name="WaterDirtLayer" type="TileMapLayer" parent="." unique_id=305478624]
 tile_set = SubResource("TileSet_pobgt")
 
 [node name="Plants" type="Node2D" parent="." unique_id=1360996094]
 
-[node name="Player" parent="." unique_id=1064576997 instance=ExtResource("4_ydq7e")]
+[node name="Player" parent="." unique_id=1064576997 instance=ExtResource("4_o4qfi")]
 
 [node name="TimeManager" type="Timer" parent="." unique_id=1487135645]
 wait_time = 5.0
 autostart = true
-script = ExtResource("5_vnra1")
+script = ExtResource("5_y0snq")
 metadata/_custom_type_script = "uid://c208mvtgfpyhc"
 
 [connection signal="tool_used" from="Player" to="." method="_on_player_tool_used"]

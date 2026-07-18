@@ -10,9 +10,9 @@ enum CellType {
 	WATER
 }
 @export var _atlas_coordinates: Dictionary[CellType, Vector2i]
-const PLANT = preload("uid://cnn5fh14sys6e")
+const PLANT = preload("uid://gc0vipe2g5t4")
 @onready var plants: Node2D = $Plants
-var planted_cells: Array[Vector2i]
+var planted_cells: Dictionary[Vector2i, Plant]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +26,9 @@ func _on_player_tool_used(tool: Player.Tool, offset: Vector2) -> void:
 	match tool:
 		Player.Tool.DIG:
 			dirt_layer.set_cells_terrain_connect([grid_pos], 0, 0, false)
+			if planted_cells.has(grid_pos):
+				planted_cells[grid_pos].animate_on_ground()
+				planted_cells.erase(grid_pos)
 		Player.Tool.WATER:
 			var dirt_data := dirt_layer.get_cell_tile_data(grid_pos)
 			if not dirt_data:
@@ -41,13 +44,15 @@ func _on_player_tool_used(tool: Player.Tool, offset: Vector2) -> void:
 				return
 			
 			if not grid_pos in planted_cells:
-				var plant = PLANT.instantiate()
+				var plant = PLANT.instantiate() as Plant
 				plant.position = (TILE_SIZE * grid_pos) + Vector2i(TILE_SIZE / 2, TILE_SIZE / 3)
 				plants.add_child(plant)
+				plant.grid_pos = grid_pos
 				print("am spawnat o planta")
-				planted_cells.append(grid_pos)
+				planted_cells[grid_pos] = plant
 
 func _on_time_manager_timeout() -> void:
 	var plant_nodes = get_tree().get_nodes_in_group("plants")
-	for plant in plant_nodes:
-		pass
+	for plant: Plant in plant_nodes:
+		if water_dirt_layer.get_cell_tile_data(plant.grid_pos) != null:
+			plant.grow_plant()

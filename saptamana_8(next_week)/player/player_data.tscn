@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fk231eelv0fc"]
+
+[ext_resource type="Script" uid="uid://bsxiv805v4s6s" path="res://saptamana_8(next_week)/player/player_data.gd" id="1_q3un7"]
+
+[node name="PlayerData" type="Node" unique_id=995495128]
+script = ExtResource("1_q3un7")

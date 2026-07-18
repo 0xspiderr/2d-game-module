@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="2d_game_module"
-run/main_scene="uid://dgv5ev0gcgpd8"
+run/main_scene="uid://crvbk22xpsuvp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerData="*uid://cieq6vq1nb2ih"
 
 [display]
 
